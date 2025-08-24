@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindTrack - Mental Health Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>MindTrack: Real-Time Mental Health Monitor</h1>
+        <p>This tool analyzes facial expressions, voice tone, and typing patterns to provide insights into your current mood.</p>
+    </header>
+
+    <main class="container">
+        <div class="column">
+            <h2>Facial Expression Analysis</h2>
+            <div class="video-container">
+                <img id="video-feed" src="{{ url_for('video_feed') }}" width="100%">
+            </div>
+            <p class="note">Your camera feed is processed in real-time and is not stored.</p>
+        </div>
+
+        <div class="column">
+            <h2>Voice & Typing Analysis</h2>
+            
+            <div class="input-group">
+                <h3>Voice Tone</h3>
+                <button id="record-btn">Start Recording Voice (5s)</button>
+                <p id="mic-status">Status: Idle</p>
+            </div>
+            
+            <div class="input-group">
+                <h3>Typing Patterns</h3>
+                <textarea id="text-input" placeholder="Type here to analyze your keystroke patterns..."></textarea>
+                <div class="keystroke-metrics">
+                    <p>Typing Speed: <span id="typing-speed">0</span> WPM</p>
+                    <p>Errors: <span id="error-count">0</span></p>
+                    <p>Backspaces: <span id="backspace-count">0</span></p>
+                </div>
+            </div>
+
+            <button id="analyze-btn">Analyze My Mood</button>
+        </div>
+
+        <div class="column">
+            <h2>Analysis Results</h2>
+            <div id="results-container">
+                <p>Click "Analyze My Mood" to see the results.</p>
+            </div>
+        </div>
+    </main>
+    
+    <div id="recommendation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-recommendation"></p>
+            <div id="modal-details"></div>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

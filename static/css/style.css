@@ -1,0 +1,522 @@
+/* MindTrack: Mental Health Monitoring Theme */
+:root {
+  --serene-blue: #5D9CEC;
+  --calm-green: #48CFAD;
+  --mindful-purple: #AC92EC;
+  --peaceful-teal: #4FC1E9;
+  --alert-orange: #FFA07A;
+  --deep-thought: #2C3E50;
+  --light-mind: #ECF0F1;
+  --shadow-mind: #BDC3C7;
+}
+
+@font-face {
+  font-family: 'MindTrackFont';
+  src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: var(--deep-thought);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Brain Wave Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(245, 247, 250, 0.9), rgba(245, 247, 250, 0.9)),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%235D9CEC" fill-opacity="0.1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+  background-size: cover;
+  background-position: bottom;
+  z-index: -1;
+  animation: waveAnimation 15s ease-in-out infinite alternate;
+}
+
+@keyframes waveAnimation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Header with Brain Icon Animation */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 0 30px;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--serene-blue), 
+    var(--calm-green), 
+    transparent);
+  border-radius: 2px;
+}
+
+header h1 {
+  color: var(--deep-thought);
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
+
+header h1::before {
+  content: "🧠";
+  font-size: 1.5em;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+header p.subtitle {
+  color: var(--shadow-mind);
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* Main Container with Thought Bubble Effect */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Columns with Mental Health Icons */
+.column {
+  flex: 1;
+  min-width: 350px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(93, 156, 236, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.column::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.column:nth-child(1)::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%235D9CEC"><path d="M12 2a10 10 0 0 0-7.743 16.33l-1.964 1.963A1 1 0 0 0 3 22h9a10 10 0 0 0 0-20zm0 2a8 8 0 0 1 7.043 11.817l-1.726-1.726A5 5 0 0 0 12 7a5 5 0 0 0-3.864 8.152l-1.726 1.726A8 8 0 0 1 12 4zm-3 7a3 3 0 1 1 6 0 3 3 0 0 1-6 0z"/></svg>');
+}
+
+.column:nth-child(2)::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2348CFAD"><path d="M12 2a10 10 0 0 1 7.743 16.33l-1.964 1.963A1 1 0 0 1 17 22H7a1 1 0 0 1-.707-.293l-1.963-1.964A10 10 0 0 1 12 2zm0 2a8 8 0 0 0-6.258 12.848l1.71 1.71A5 5 0 0 1 12 7a5 5 0 0 1 3.547 8.559l1.71-1.71A8 8 0 0 0 12 4zm-3 7a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/></svg>');
+}
+
+.column:nth-child(3)::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23AC92EC"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2zm0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8zm-3 7a3 3 0 1 1 6 0 3 3 0 0 1-6 0z"/></svg>');
+}
+
+.column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(93, 156, 236, 0.2);
+}
+
+.column:hover::before {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Section Headers with EEG Wave Underline */
+h2 {
+  color: var(--deep-thought);
+  border-bottom: 2px solid var(--light-mind);
+  padding-bottom: 15px;
+  margin: 0 0 25px 0;
+  font-weight: 600;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--serene-blue), 
+    var(--calm-green));
+  border-radius: 3px;
+  animation: eegWave 4s linear infinite;
+}
+
+@keyframes eegWave {
+  0% { width: 100px; left: 0; }
+  50% { width: 150px; }
+  100% { width: 100px; left: calc(100% - 100px); }
+}
+
+/* Video Container with Mental State Indicator */
+.video-container {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 5px 20px rgba(93, 156, 236, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.video-container::after {
+  content: "Analyzing...";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--deep-thought);
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  animation: pulse 2s infinite;
+}
+
+#video-feed {
+  width: 100%;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.video-container:hover #video-feed {
+  opacity: 0.9;
+}
+
+/* Mental State Indicators */
+.mind-status {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.status-indicator {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.status-indicator:hover {
+  transform: scale(1.05);
+}
+
+.status-indicator.calm {
+  background-color: rgba(72, 207, 173, 0.1);
+  border-left: 4px solid var(--calm-green);
+}
+
+.status-indicator.focused {
+  background-color: rgba(93, 156, 236, 0.1);
+  border-left: 4px solid var(--serene-blue);
+}
+
+.status-indicator.stressed {
+  background-color: rgba(255, 160, 122, 0.1);
+  border-left: 4px solid var(--alert-orange);
+}
+
+.status-icon {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+/* Interactive Elements */
+button {
+  background: linear-gradient(135deg, 
+    var(--serene-blue) 0%, 
+    var(--peaceful-teal) 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(93, 156, 236, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(93, 156, 236, 0.4);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+#analyze-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, 
+    var(--mindful-purple) 0%, 
+    var(--serene-blue) 100%);
+  position: relative;
+}
+
+#analyze-btn::after {
+  content: "🧠";
+  position: absolute;
+  right: 20px;
+  animation: brainBeat 1.5s infinite;
+}
+
+@keyframes brainBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Mental Health Metrics */
+.mental-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.metric {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.metric:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(93, 156, 236, 0.2);
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--serene-blue);
+  margin: 5px 0;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: var(--shadow-mind);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Results Container with Thought Bubble Animation */
+#results-container {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  min-height: 200px;
+  box-shadow: 0 5px 20px rgba(93, 156, 236, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+#results-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, 
+    var(--serene-blue), 
+    var(--calm-green), 
+    var(--mindful-purple));
+  animation: rainbowProgress 8s linear infinite;
+  background-size: 300% 100%;
+}
+
+@keyframes rainbowProgress {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Breathing Exercise Animation (for stress relief) */
+.breathing-exercise {
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(93, 156, 236, 0.1);
+  border-radius: 15px;
+  animation: breathe 8s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0%, 100% { 
+    transform: scale(1);
+    background: rgba(93, 156, 236, 0.1);
+  }
+  50% { 
+    transform: scale(1.02);
+    background: rgba(93, 156, 236, 0.15);
+  }
+}
+
+.breathing-circle {
+  width: 100px;
+  height: 100px;
+  background: var(--serene-blue);
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  animation: pulseCircle 4s infinite ease-in-out;
+}
+
+@keyframes pulseCircle {
+  0%, 100% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  .container {
+    flex-direction: column;
+  }
+  
+  .column {
+    min-width: auto;
+  }
+  
+  .mental-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mood Tracker */
+.mood-tracker {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.mood-option {
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.mood-option:hover {
+  transform: translateY(-5px);
+  background: rgba(93, 156, 236, 0.1);
+}
+
+.mood-emoji {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.mood-option:hover .mood-emoji {
+  transform: scale(1.2);
+}
+
+/* Mental Health Tips Carousel */
+.tips-carousel {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tip {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tip.active {
+  display: block;
+}
+
+.tip-icon {
+  font-size: 2rem;
+  color: var(--serene-blue);
+  margin-bottom: 10px;
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
