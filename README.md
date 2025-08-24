@@ -102,5 +102,5 @@ Follow these steps to get MindTrack running on your local machine.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/MindTrack.git
+git remote add origin https://github.com/MANIKANDAN000/MindTrack-Real-Time-Mental-Health-Mood-Detection-and-Alert-System.git
 cd MindTrack
